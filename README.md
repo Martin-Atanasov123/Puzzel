@@ -1,3 +1,4 @@
+
 Puzzle Bullet Hell Game 🎮💥
 A fun web-based game that mixes puzzle-solving with bullet-hell action! Solve memory puzzles, dodge projectiles, and progress through a dynamic story of survival and exploitation.
 
@@ -20,7 +21,6 @@ Installation 💻
 Clone the repo and open index.html in your browser:
 
 bash
-Copy code
 git clone https://github.com/your-username/puzzle-bullethell-game.git
 cd puzzle-bullethell-game
 Contributing 🤝
