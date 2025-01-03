@@ -6,7 +6,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: auto;
+    margin-top: 6em;
     background-color: #1e1e2e;
     color: white;
 }
@@ -25,7 +26,7 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 18px;
+    font-size: 50px;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.2s, transform 0.2s;

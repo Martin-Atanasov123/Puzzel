@@ -1,4 +1,5 @@
-const icons = ["\u2600", "\u2601", "\u2602", "\u2603", "\u2660", "\u2663", "\u2665", "\u2666"];
+const icons = ["\u2600", "\u2601", "\u2602", "\u2603", "\u2660", "\u2663", "\u2665", "\u2666",];
+const img="/slice-fill.svg";
 const themes = {
     default: { background: '#1e1e2e', tiles: '#444' },
     space: { background: '#000', tiles: '#333' },
