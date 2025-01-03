@@ -1,54 +1,43 @@
-*{
-    margin: 0cm;
-    padding: 0cm;
-    box-sizing: border-box;
-}
-
-
 body {
-    display: flex;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #1e1e2e;
     color: white;
-    flex-wrap: wrap;
-}
-section {
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-
 }
 
-.game-container {
-    display: flex;
+#game-container {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 20px;
+}
 
-
-
-    margin: 7px;
-
-    background-color: aliceblue;
+.tile {
+    width: 80px;
+    height: 80px;
     background-color: #444;
-
-    height: 4em;
-    width: 4em;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s, transform 0.2s;
 }
-.game-container:hover {
-    background-color: #555;
 
+.tile.flipped {
+    background-color: #6c5ce7;
+    transform: scale(1.1);
+    pointer-events: none;
 }
-
 
 button {
-    display: flex;
     padding: 10px 20px;
     background-color: #6c5ce7;
     border: none;
@@ -56,8 +45,43 @@ button {
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
+    margin: 5px;
 }
 
 button:hover {
     background-color: #5a4dcd;
+}
+
+#timer {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#scoreboard {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#scoreboard table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#scoreboard th,
+#scoreboard td {
+    border: 1px solid #444;
+    padding: 5px;
+    text-align: center;
+}
+
+#themes {
+    margin-top: 20px;
+}
+
+#level-select {
+    margin-top: 20px;
+}
+#start-button{
+    display: none;
 }

@@ -5,166 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puzzle & Bullet Hell Game</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #1e1e2e;
-            color: white;
-        }
-
-        #game-container {
-            display: grid;
-            grid-template-columns: repeat(4, 80px);
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .tile {
-            width: 80px;
-            height: 80px;
-            background-color: #444;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.2s, transform 0.2s;
-        }
-
-        .tile.flipped {
-            background-color: #6c5ce7;
-            transform: scale(1.1);
-            pointer-events: none;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #6c5ce7;
-            border: none;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        button:hover {
-            background-color: #5a4dcd;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div id="timer">Time: 0 seconds</div>
     <div id="game-container"></div>
-    <button id="start-button">Start Bullet Hell</button>
+    <button id="start-button">Start</button>
+    <button id="clear-timer">Clear Timer</button>
+    <button id="clear-scores">Clear Times</button>
+    <div id="themes">
+        <label for="theme-select">Choose Theme:</label>
+        <select id="theme-select">
+            <option value="default">Default</option>
+            <option value="space">Space</option>
+            <option value="ocean">Ocean</option>
+            <option value="forest">Forest</option>
+            <option value="desert">Desert</option>
+        </select>
+    </div>
+    <div id="level-select">
+        <label for="level-select">Choose Level:</label>
+        <select id="level">
+            <option value="4">4x4</option>
+            <option value="6">6x6</option>
+            <option value="8">8x8</option>
+        </select>
+    </div>
+    <div id="scoreboard">
+        <h3>Game Times</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Time (seconds)</th>
+                </tr>
+            </thead>
+            <tbody id="times-list">
+            </tbody>
+        </table>
+    </div>
 
-    <script>
-        const icons = ["\u2600", "\u2601", "\u2602", "\u2603", "\u2660", "\u2663", "\u2665", "\u2666"];
-        const gameContainer = document.getElementById('game-container');
-        const startButton = document.getElementById('start-button');
-
-        let tiles = [];
-        let firstTile = null;
-        let secondTile = null;
-        let lockBoard = false;
-
-        // Shuffle array function
-        function shuffle(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-        }
-
-        // Create the puzzle grid
-        function createGrid() {
-            const pairs = [...icons, ...icons];
-            shuffle(pairs);
-
-            pairs.forEach((icon, index) => {
-                const tile = document.createElement('div');
-                tile.classList.add('tile');
-                tile.dataset.icon = icon;
-                tile.innerHTML = "&nbsp;"; // Empty until flipped
-
-                tile.addEventListener('click', () => flipTile(tile));
-
-                gameContainer.appendChild(tile);
-                tiles.push(tile);
-            });
-        }
-
-        // Flip tile logic
-        function flipTile(tile) {
-            if (lockBoard || tile === firstTile) return;
-
-            tile.innerHTML = tile.dataset.icon;
-            tile.classList.add('flipped');
-
-            if (!firstTile) {
-                firstTile = tile;
-                return;
-            }
-
-            secondTile = tile;
-            lockBoard = true;
-
-            checkMatch();
-        }
-
-        // Check if tiles match
-        function checkMatch() {
-            const isMatch = firstTile.dataset.icon === secondTile.dataset.icon;
-
-            if (isMatch) {
-                disableTiles();
-            } else {
-                unflipTiles();
-            }
-        }
-
-        // Disable matched tiles
-        function disableTiles() {
-            firstTile.removeEventListener('click', () => flipTile(firstTile));
-            secondTile.removeEventListener('click', () => flipTile(secondTile));
-
-            resetBoard();
-        }
-
-        // Unflip unmatched tiles
-        function unflipTiles() {
-            setTimeout(() => {
-                firstTile.innerHTML = "&nbsp;";
-                secondTile.innerHTML = "&nbsp;";
-
-                firstTile.classList.remove('flipped');
-                secondTile.classList.remove('flipped');
-
-                resetBoard();
-            }, 1000);
-        }
-
-        // Reset board state
-        function resetBoard() {
-            [firstTile, secondTile] = [null, null];
-            lockBoard = false;
-        }
-
-        // Bullet Hell Placeholder
-        startButton.addEventListener('click', () => {
-            alert('Bullet Hell Mode Coming Soon!');
-        });
-
-        // Initialize the grid
-        createGrid();
+    <script src="script.js">
     </script>
 </body>
 
