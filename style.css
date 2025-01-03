@@ -6,15 +6,16 @@
 
 
 body {
+    display: flex;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #1e1e2e;
     color: white;
+    flex-wrap: wrap;
 }
 section {
     display: flex;
@@ -39,4 +40,24 @@ section {
     height: 4em;
     width: 4em;
 
+}
+.game-container:hover {
+    background-color: #555;
+
+}
+
+
+button {
+    display: flex;
+    padding: 10px 20px;
+    background-color: #6c5ce7;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #5a4dcd;
 }
