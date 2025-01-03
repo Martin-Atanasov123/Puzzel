@@ -160,8 +160,8 @@ function resetBoard() {
     lockBoard = false;
 }
 
-startButton.addEventListener('click', () => {
-    alert('Bullet Hell Mode Coming Soon!');
-});
+// startButton.addEventListener('click', () => {
+//     alert('Bullet Hell Mode Coming Soon!');
+// });
 
 createGrid();
