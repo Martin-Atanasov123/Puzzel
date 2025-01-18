@@ -5,7 +5,7 @@ body {
     display: flex;
 
     justify-content: center;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 
     margin-top: 6em;
@@ -100,12 +100,37 @@ button:hover {
 #start-button{
     display: none;
 }
-.other_game{
+
+.other_game {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    border: 1px solid red;
+    margin: 1em auto; /* Center horizontally */
+    width: 30%; /* Adjust width */
+    max-width: 1000px; /* Optional: Add a max width for responsiveness */
+    padding: 1em;
+    border-radius: 10px;
+    transition: background-color 0.2s;
 }
+
+.other_game:hover {
+    background-color: #ff5722;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+.other_game img {
+    width: 100%; /* Adjust to container width */
+    /* padding: 1em; */
+    cursor: pointer;
+    object-fit:fill; ;
+    border: 1px solid red;
+}
+
+
 #main_part{
     display: flex;
     flex-direction: column;
@@ -116,8 +141,23 @@ button:hover {
 @media screen and (max-width: 768px) {
     /* Add your responsive styles here */
     /* For example, adjusting the game container size */
+    body{
+        margin-top: 2em;
+        font-size: 20px;
+        flex-direction: column;
+    }
     #game-container {
         grid-template-columns: repeat(3, 1fr);
     }
+    .other_game:first-child{
+        display:none;
+    }
+    .other_game{
+        display: flex;
+        width: 80%;
+
+    }
+    
+
 
 }

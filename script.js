@@ -65,7 +65,7 @@ function startTimer() {
     startTime = Date.now();
     timerInterval = setInterval(() => {
         const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
-        timerDisplay.textContent = `Time: ${elapsedTime} seconds`;
+        timerDisplay.textContent = `Time: ${elapsedTime} s⏳`;
     }, 1000);
 }
 
@@ -78,7 +78,7 @@ function stopTimer() {
 
 function clearTimer() {
     clearInterval(timerInterval);
-    timerDisplay.textContent = "Time: 0 seconds";
+    timerDisplay.textContent = "Time: 0 s⏳";
     timerStarted = false;
 }
 
@@ -140,7 +140,7 @@ function disableTiles() {
 
     if (tiles.every(tile => tile.classList.contains('flipped'))) {
         setTimeout(() => {
-            alert(`Congratulations! You completed the game in ${stopTimer()} seconds.`);
+            alert(`🎉Congratulations!😜 You completed the game in ${stopTimer()} seconds🏆.`);
         }, 500);
     }
 }
@@ -160,8 +160,6 @@ function resetBoard() {
     lockBoard = false;
 }
 
-// startButton.addEventListener('click', () => {
-//     alert('Bullet Hell Mode Coming Soon!');
-// });
+
 
 createGrid();
