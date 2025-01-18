@@ -5,7 +5,6 @@ body {
     display: flex;
 
     align-items: center;
-
     margin-top: 6em;
     background-color: #1e1e2e;
     color: white;
@@ -16,6 +15,7 @@ body {
     gap: 10px;
     margin-bottom: 20px;
 }
+
 
 .tile {
     width: 80px;
