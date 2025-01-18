@@ -4,8 +4,6 @@ body {
     padding: 0;
     display: flex;
 
-    justify-content: center;
-    justify-content: space-around;
     align-items: center;
 
     margin-top: 6em;
@@ -100,15 +98,18 @@ button:hover {
 #start-button{
     display: none;
 }
+#clear-scores{
+    display: none;
+}
 
 .other_game {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
+    border: 3px solid rgb(65, 65, 65);
     margin: 1em auto; /* Center horizontally */
-    width: 30%; /* Adjust width */
+    width: 20%; /* Adjust width */
     max-width: 1000px; /* Optional: Add a max width for responsiveness */
     padding: 1em;
     border-radius: 10px;
@@ -116,7 +117,7 @@ button:hover {
 }
 
 .other_game:hover {
-    background-color: #ff5722;
+
     transform: scale(1.1);
     cursor: pointer;
 }
@@ -127,7 +128,10 @@ button:hover {
     /* padding: 1em; */
     cursor: pointer;
     object-fit:fill; ;
-    border: 1px solid red;
+
+    border: 3px solid rgb(43, 38, 88);
+
+
 }
 
 
